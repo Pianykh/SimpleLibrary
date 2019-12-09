@@ -12,6 +12,10 @@ public class Book {
         this.series = series;
     }
 
+    public  Book(){
+        super();
+    }
+
     public int getId() {
         return id;
     }

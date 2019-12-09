@@ -53,7 +53,7 @@ public class UserDAO {
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getPassword());
-            statement.setString(4, user.getRole());
+            statement.setString(5, user.getRole());
             status = statement.executeUpdate();
             con.close();
         } catch (SQLException e) {
@@ -62,20 +62,20 @@ public class UserDAO {
         return status;
     }
 
-    public static List<User> getAll(){
+    public static List<User> getAll() {
         List<User> users = new ArrayList<User>();
         Connection con = DataBaseConnector.getConnection();
         try {
             PreparedStatement statement = con.prepareStatement("SELECT * FROM simplelibrary.users");
             ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 User user = new User();
-                user.setId(resultSet.getInt("ID"));
-                user.setFirstName(resultSet.getString("firstName"));
-                user.setLastName(resultSet.getString("lastName"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
-                user.setRole(resultSet.getString("role"));
+                user.setId(resultSet.getInt(1));
+                user.setFirstName(resultSet.getString(2));
+                user.setLastName(resultSet.getString(3));
+                user.setEmail(resultSet.getString(4));
+                user.setPassword(resultSet.getString(5));
+                user.setRole(resultSet.getString(6));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -85,14 +85,14 @@ public class UserDAO {
 
     }
 
-    public static User getByID(int id){
+    public static User getByID(int id) {
         User user = new User();
         Connection con = DataBaseConnector.getConnection();
         try {
             PreparedStatement statement = con.prepareStatement("SELECT * FROM simplelibrary.users WHERE ID=?");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 user.setId(resultSet.getInt(1));
                 user.setFirstName(resultSet.getString(2));
                 user.setLastName(resultSet.getString(3));
@@ -105,5 +105,28 @@ public class UserDAO {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public static List<User> getAllByRole(String role) {
+        List<User> users = new ArrayList<User>();
+        Connection con = DataBaseConnector.getConnection();
+        try {
+            PreparedStatement statement = con.prepareStatement("SELECT * FROM simplelibrary.users WHERE role=?");
+            statement.setString(1, role);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getInt(1));
+                user.setFirstName(resultSet.getString(2));
+                user.setLastName(resultSet.getString(3));
+                user.setEmail(resultSet.getString(4));
+                user.setPassword(resultSet.getString(5));
+                user.setRole(resultSet.getString(6));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 }
