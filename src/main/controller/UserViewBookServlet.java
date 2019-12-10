@@ -27,7 +27,7 @@ public class UserViewBookServlet extends HttpServlet {
 
         List<Book> books = BookDAO.getAll();
 
-        out.print("<table><tr><th>ID</th><th>Name></th><th>Author></th><th>Genre></th><th>Series></th></tr>");
+        out.print("<table><tr><th>ID</th><th>Name</th><th>Author</th><th>Genre</th><th>Series>/th></tr>");
         books.forEach(book -> {
             out.println("<tr><td>" + book.getId() + "</td><td>" + book.getName() + "</td><td>" +
                     book.getAuthor() + "</td><td>" + book.getGenre() + "</td><td>" + book.getSeries() + "</td>");
