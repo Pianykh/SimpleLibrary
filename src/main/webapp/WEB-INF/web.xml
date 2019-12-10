@@ -13,7 +13,23 @@
         <servlet-name>UserLogin</servlet-name>
         <servlet-class>main.controller.UserLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminViewBook</servlet-name>
+        <servlet-class>main.controller.AdminViewBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BookDelete</servlet-name>
+        <servlet-class>main.controller.BookDeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserViewBook</servlet-name>
+        <servlet-class>main.controller.UserViewBookServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>BookDelete</servlet-name>
+        <url-pattern>/BookDelete</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserLogin</servlet-name>
         <url-pattern>/UserLogin</url-pattern>
@@ -21,6 +37,14 @@
     <servlet-mapping>
         <servlet-name>AdminLogin</servlet-name>
         <url-pattern>/AdminLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminViewBook</servlet-name>
+        <url-pattern>/AdminViewBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserViewBook</servlet-name>
+        <url-pattern>/UserViewBook</url-pattern>
     </servlet-mapping>
 </web-app>
 
