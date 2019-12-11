@@ -37,10 +37,26 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>main.controller.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddBook</servlet-name>
+        <servlet-class>main.controller.AddBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>main.controller.AddUserServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>AddBook</servlet-name>
+        <url-pattern>/AddBook</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BookDelete</servlet-name>
         <url-pattern>/BookDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/AddUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserDelete</servlet-name>

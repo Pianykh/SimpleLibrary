@@ -12,6 +12,6 @@ public class UserDeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAO.delete(Integer.parseInt(req.getParameter("ID")));
-        resp.sendRedirect("AdminViewBook");
+        resp.sendRedirect("AdminViewUsers");
     }
 }
